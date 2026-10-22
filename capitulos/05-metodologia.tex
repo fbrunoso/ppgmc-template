@@ -1,0 +1,16 @@
+\chapter{Metodologia}\label{chap:metodologia}
+A metodologia deve permitir compreender e reproduzir o percurso científico. Recomenda-se explicitar hipóteses, formulação matemática, condições de contorno, discretização, algoritmos, parâmetros, infraestrutura e métricas de avaliação.
+
+\section{Formulação do problema}
+Considere um domínio $\Omega$ e uma variável de estado $\phi$. Um modelo genérico pode ser representado por
+\begin{equation}\label{eq:modelo}\mathcal{L}(\phi;\boldsymbol{\theta})=f\quad\text{em }\Omega,\end{equation}
+em que $\mathcal{L}$ é um operador, $\boldsymbol{\theta}$ representa parâmetros e $f$ é um termo de fonte. Esta equação é um exemplo abstrato, não uma descrição de um experimento realizado.
+
+\section{Discretização e implementação}
+O estudante deve identificar malha, passo temporal, tolerâncias, bibliotecas utilizadas e versões dos programas. Para modelos computacionais, registre critérios de convergência e a forma de verificação do código.
+
+\section{Verificação e validação}
+Verificação e validação respondem a perguntas distintas: se as equações discretizadas foram resolvidas corretamente e se o modelo representa adequadamente o fenômeno de interesse. Descreva testes, soluções de referência, incertezas e limitações.
+
+\section{Reprodutibilidade}
+Informe a origem dos dados, os procedimentos de processamento e a disponibilidade de código, quando pertinente. Use tabelas para reunir parâmetros e apresente claramente o ambiente computacional.

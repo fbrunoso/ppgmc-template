@@ -1,0 +1,20 @@
+\chapter{Organização dos arquivos e configuração}\label{chap:organizacao}
+O arquivo principal é \texttt{main.tex}. A classe de documento é \texttt{abntex2}, com personalizações para o PPGMC. A configuração centralizada está no arquivo \texttt{configuracao.tex}. Os capítulos são arquivos independentes na pasta \texttt{capitulos}, permitindo escrita progressiva e colaboração.
+
+\section{Escolha da modalidade}
+No arquivo de configuração, use \verb|\def\Modalidade{mestrado}| ou \verb|\def\Modalidade{doutorado}|. Para escolher a etapa, use \verb|\def\Etapa{qualificacao}| ou \verb|\def\Etapa{defesa}|. O modelo produz automaticamente a apresentação correspondente.
+
+\section{Elementos pré-textuais}
+A capa, a folha de rosto e a folha de banca são produzidas pelo arquivo principal. Dedicatória, agradecimentos e epígrafe são exemplos opcionais, editáveis na pasta \texttt{pretextuais}. O resumo e o \textit{abstract} devem sintetizar o trabalho efetivamente realizado. As listas e o sumário são gerados automaticamente.
+
+\subsection{Ficha catalográfica}
+Na versão definitiva, insira o arquivo oficial fornecido pelo setor competente no caminho \texttt{pretextuais/ficha-catalografica.pdf}. A configuração \verb|\def\IncluirFicha{true}| ativa sua inclusão. Não gere dados catalográficos fictícios.
+
+\section{Folhas de banca}
+Para defesa de mestrado, o padrão contém três examinadores, incluindo o orientador e pelo menos um externo à UESC. Para defesa de doutorado, cinco examinadores, incluindo o orientador e pelo menos dois externos à UESC. A qualificação requer ao menos três especialistas, incluindo o orientador e um externo ao PPGMC; coorientadores não contam para esse mínimo. A composição efetiva deve ser homologada pelo Colegiado. A folha de qualificação não substitui a ata de avaliação.
+
+\section{Arquivos textuais e pós-textuais}
+Cada capítulo tem seu arquivo próprio. As referências são armazenadas em \texttt{referencias.bib}; apêndices e anexos ficam em pastas separadas. Evite alterar comandos estruturais no arquivo principal, salvo quando necessário.
+
+\section{Compilação no Overleaf}
+Configure o compilador \textbf{pdfLaTeX} e o processador bibliográfico \textbf{Biber}. Na linha de comando, execute \texttt{pdflatex main}, \texttt{biber main} e duas vezes \texttt{pdflatex main}. A última passagem resolve referências cruzadas, numeração e sumário.

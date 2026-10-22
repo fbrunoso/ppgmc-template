@@ -1,0 +1,14 @@
+% Edite os quatro pares: nome da área / contribuição.
+\begin{tikzpicture}[>=Latex, every node/.style={align=center,font=\small},
+ area/.style={draw,rounded corners=9pt,minimum width=3.7cm,minimum height=1.3cm,thick},
+ central/.style={circle,draw=black!65,fill=blue!13,minimum size=3cm,thick}]
+\node[central] (p) at (0,0) {\textbf{Esta pesquisa}};
+\node[area,draw=blue!65,fill=blue!7] (a) at (-3.65,2.35) {\textbf{Física}\\Fenômenos e leis};
+\node[area,draw=green!55!black,fill=green!7] (b) at (3.65,2.35) {\textbf{Matemática}\\Modelos e métodos};
+\node[area,draw=orange!80!black,fill=orange!7] (c) at (-3.65,-2.35) {\textbf{Computação}\\Algoritmos e simulação};
+\node[area,draw=violet,fill=violet!7] (d) at (3.65,-2.35) {\textbf{Engenharia Nuclear}\\Aplicações e validação};
+\draw[->,very thick,blue!65] (a) -- (p);
+\draw[->,very thick,green!55!black] (b) -- (p);
+\draw[->,very thick,orange!80!black] (c) -- (p);
+\draw[->,very thick,violet] (d) -- (p);
+\end{tikzpicture}

@@ -1,0 +1,26 @@
+# Arquivos auxiliares LaTeX
+*.aux
+*.bbl
+*.bcf
+*.blg
+*.fdb_latexmk
+*.fls
+*.log
+*.out
+*.run.xml
+*.synctex.gz
+*.toc
+*.lof
+*.lot
+*.lol
+*.nav
+*.snm
+*.vrb
+
+# Ambientes e editores
+.vscode/
+.idea/
+.DS_Store
+
+# Compilacoes temporarias
+build/

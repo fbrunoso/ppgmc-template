@@ -1,0 +1,31 @@
+\chapter{Citações e referências}\label{chap:citacoes}
+Citações permitem reconhecer fontes, delimitar o conhecimento existente e fundamentar argumentos. Este exemplo utiliza o sistema autor-data e um arquivo bibliográfico externo. A apresentação deve ser verificada conforme as edições vigentes da ABNT, particularmente a NBR 10520:2023 e a NBR 6023:2025.
+
+\section{Referências no arquivo bibliográfico}
+O arquivo \texttt{referencias.bib} reúne os metadados. Use os tipos \texttt{@book}, \texttt{@article}, \texttt{@inproceedings} e \texttt{@online}, conforme o material citado. Para artigos científicos, registre título, periódico, ano, volume, número, páginas e DOI quando disponíveis.
+
+\section{Citações indiretas}
+Uma citação narrativa pode ser construída com \verb|\textcite{knuth1984a}|, como em \textcite{knuth1984a}, que discute programação literária. Para citações entre parênteses, use \verb|\parencite{lamport1994}|, produzindo \parencite{lamport1994}. A indicação de fontes múltiplas deve ser coerente com a norma adotada \parencite{knuth1984a,lamport1994}.
+
+\section{Citações diretas curtas}
+Uma citação direta curta integra o parágrafo, entre aspas, acompanhada da indicação da fonte e da localização correspondente. \textbf{Não invente citações textuais nem números de página.} Para demonstrar o comando sem atribuir uma frase inexistente a um autor, considere a sintaxe \verb|\parencite[p.~12]{chave}| e substitua a chave e a página por dados efetivamente conferidos.
+
+\section{Citações diretas longas}
+As citações longas são destacadas em bloco, com recuo e espaçamento apropriados. O exemplo abaixo contém texto instrutivo próprio, não uma transcrição bibliográfica:
+\begin{citacao}
+Este espaço demonstra a formatação de uma citação longa. Ao utilizar o ambiente em uma dissertação ou tese, substitua este texto por transcrição fiel de uma fonte consultada, identificando autor, ano e página conforme a norma vigente.
+\end{citacao}
+
+\section{Fontes digitais, DOI e conferência}
+Antes de entregar o documento, confirme a correspondência entre citações e referências, a integridade de endereços eletrônicos, a forma de apresentação dos identificadores digitais e os dados de autoria. O estilo automatizado reduz o trabalho, mas não substitui a conferência normativa.
+
+\section{Exemplo de entrada bibliográfica}
+\begin{verbatim}
+@book{lamport1994,
+  author    = {Leslie Lamport},
+  title     = {LaTeX: A Document Preparation System},
+  edition   = {2},
+  publisher = {Addison-Wesley},
+  year      = {1994}
+}
+\end{verbatim}

@@ -1,0 +1,93 @@
+% MODELO PPGMC/UESC 2.0 - Francisco Bruno Souza Oliveira (2026)
+% Base: modelo 1.4, Valdex de Jesus Santos (autor) e Francisco Bruno Souza Oliveira (colaborador).
+% Os creditos do template constam no README, nao no trabalho do estudante.
+\documentclass[12pt,oneside,a4paper,brazil,english]{abntex2}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{newtxtext,newtxmath} % Times equivalente em TEXTO E MATEMATICA
+\usepackage{graphicx,booktabs,amsmath,mathtools,subcaption,tabularx,array,longtable}
+\usepackage[ruled,vlined,portuguese]{algorithm2e}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta,positioning}
+\usepackage{etoolbox}
+\usepackage{geometry}
+\usepackage{pdfpages}
+\usepackage{multicol}
+\usepackage{enumitem}
+\usepackage{newfloat}
+\DeclareFloatingEnvironment[name=Quadro]{quadro}
+\usepackage{microtype}
+\usepackage{csquotes}
+% Padronizacao Times-equivalente inclusive nos titulos do abntex2
+\renewcommand{\ABNTEXchapterfont}{\rmfamily\bfseries}
+\renewcommand{\ABNTEXchapterfontsize}{\normalsize}
+\renewcommand{\ABNTEXsectionfont}{\rmfamily\bfseries}
+\renewcommand{\ABNTEXsectionfontsize}{\normalsize}
+\renewcommand{\ABNTEXsubsectionfont}{\rmfamily\bfseries}
+\renewcommand{\ABNTEXsubsectionfontsize}{\normalsize}
+
+\geometry{left=3cm,top=3cm,right=2cm,bottom=2cm}
+\OnehalfSpacing
+\setlength{\parindent}{1.25cm}
+\setlength{\parskip}{0pt}
+\usepackage[backend=biber,style=abnt,sorting=nyt]{biblatex}
+\addbibresource{referencias.bib}
+\input{configuracao}
+\hypersetup{hidelinks,pdfauthor={\Autor},pdftitle={\Titulo}}
+\newbool{doutorado}\newbool{qualificacao}
+\ifdefstring{\Modalidade}{doutorado}{\booltrue{doutorado}}{\boolfalse{doutorado}}
+\ifdefstring{\Etapa}{qualificacao}{\booltrue{qualificacao}}{\boolfalse{qualificacao}}
+\newcommand{\Tipotrabalho}{\ifbool{doutorado}{Tese}{Dissertação}}
+\newcommand{\Tipopreliminar}{\ifbool{doutorado}{tese}{dissertação}}
+\titulo{\Titulo}\autor{\Autor}\local{\Cidade}\data{\Ano}
+\instituicao{Universidade Estadual de Santa Cruz\\Programa de Pós-Graduação em Modelagem Computacional em Ciência e Tecnologia}
+\tipotrabalho{\Tipotrabalho}
+\preambulo{\ifbool{qualificacao}{Versão preliminar da \Tipopreliminar\ apresentada ao Programa de Pós-Graduação em Modelagem Computacional em Ciência e Tecnologia da Universidade Estadual de Santa Cruz para exame de qualificação.}{\Tipotrabalho\ apresentada ao Programa de Pós-Graduação em Modelagem Computacional em Ciência e Tecnologia da Universidade Estadual de Santa Cruz como parte dos requisitos para obtenção do título correspondente.}\\Área de concentração: \AreaConcentracao.}
+\newcommand{\Membro}[3]{\par\vspace{0.44cm}\noindent\rule{10cm}{0.4pt}\\#1\\{\small #2 --- #3}\par}
+\newcommand{\FolhaBanca}{%
+\cleardoublepage\thispagestyle{empty}\begin{center}\textbf{\Autor}\\[0.7cm]\textbf{\Titulo}\\[0.6cm]
+\ifbool{qualificacao}{\textbf{BANCA DO EXAME DE QUALIFICAÇÃO}}{\textbf{FOLHA DE APROVAÇÃO}}\end{center}
+\noindent\ifbool{qualificacao}{Exame de qualificação da versão preliminar da \Tipopreliminar.}{\Tipotrabalho\ apresentada ao PPGMC/UESC para obtenção do título correspondente.}\\[0.2cm]Data: \DataBanca.\par
+\Membro{\Orientador}{Presidente / Orientador}{\InstOrientador}
+\ifdefempty{\Coorientador}{}{\Membro{\Coorientador}{Coorientador (participação adicional; consultar homologação)}{\InstCoorientador}}
+\Membro{\ExaminadorA}{\ifbool{qualificacao}{Membro interno ao PPGMC}{Membro interno à UESC}}{\InstA}
+\Membro{\ExaminadorB}{\ifbool{qualificacao}{Membro externo ao PPGMC}{Membro externo à UESC}}{\InstB}
+\ifbool{qualificacao}{}{\ifbool{doutorado}{\Membro{\ExaminadorC}{Membro interno à UESC}{\InstC}\Membro{\ExaminadorD}{Membro externo à UESC}{\InstD}}{}}
+\clearpage}
+\begin{document}
+\pretextual
+\begin{capa}\begin{center}
+\includegraphics[width=6cm]{figuras/logo-ppgmc-original-adaptado.png}\\[0.15cm]
+\includegraphics[height=1.7cm]{figuras/brasao-uesc-oficial.png}\\[0.35cm]
+{\bfseries UNIVERSIDADE ESTADUAL DE SANTA CRUZ}\\
+{\bfseries PROGRAMA DE PÓS-GRADUAÇÃO EM MODELAGEM COMPUTACIONAL EM CIÊNCIA E TECNOLOGIA}
+\vfill{\bfseries\Autor}\vfill{\bfseries\Titulo}\\[0.5cm]
+\ifbool{qualificacao}{\textbf{VERSÃO PRELIMINAR PARA QUALIFICAÇÃO}}{}\vfill\Cidade\\\Ano
+\end{center}\end{capa}
+\imprimirfolhaderosto*
+% Para inserir a ficha oficial, descomente a linha abaixo apos adicionar o PDF:
+% \includepdf[pages=1]{pretextuais/ficha-catalografica.pdf}
+\FolhaBanca
+\input{pretextuais/dedicatoria}
+\input{pretextuais/agradecimentos}
+\input{pretextuais/epigrafe}
+\begin{resumo}\input{pretextuais/resumo}\end{resumo}
+\begin{resumo}[Abstract]\begin{otherlanguage*}{english}\input{pretextuais/abstract}\end{otherlanguage*}\end{resumo}
+\listoffigures*\cleardoublepage
+\listoftables*\cleardoublepage
+\input{pretextuais/listas}
+\tableofcontents*\cleardoublepage
+\textual
+\input{capitulos/01-introducao}
+\input{capitulos/02-organizacao}
+\input{capitulos/03-citacoes}
+\input{capitulos/04-elementos}
+\input{capitulos/05-metodologia}
+\input{capitulos/06-resultados}
+\ifbool{qualificacao}{\input{capitulos/07-cronograma}}{}
+\input{capitulos/08-conclusoes}
+\postextual
+\printbibliography[title={REFERÊNCIAS}]
+\input{apendices/apendices}
+\input{anexos/anexos}
+\end{document}
